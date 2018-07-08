@@ -1,0 +1,24 @@
+-classpath
+'C:/Users/jujub/.m2/repository/fr/exia/contract/0.0.1-SNAPSHOT/contract-0.0.1-SNAPSHOT.jar;C:/Users/jujub/.m2/repository/fr/exia/showboard/0.0.1-SNAPSHOT/showboard-0.0.1-SNAPSHOT.jar'
+-encoding
+'Cp1252'
+-protected
+-sourcepath
+'C:/Users/jujub/Desktop/exia/projet/projet de la mort 2.0/Lorann/controller/src/main/java;C:/Users/jujub/Desktop/exia/projet/projet de la mort 2.0/Lorann/controller/target/generated-sources/annotations'
+-author
+-bottom
+'Copyright &#169; 2018. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/jujub/Desktop/exia/projet/projet de la mort 2.0/Lorann/controller/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'lorann.controller 0.0.1-SNAPSHOT API'
+-linkoffline
+'http://docs.oracle.com/javase/8/docs/api' 'C:/Users/jujub/Desktop/exia/projet/projet de la mort 2.0/Lorann/controller/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'lorann.controller 0.0.1-SNAPSHOT API'
