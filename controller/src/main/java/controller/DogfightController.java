@@ -1,6 +1,7 @@
 package controller;
 
 import java.awt.event.InputEvent;
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -15,6 +16,13 @@ import model.IMobile;
 import model.Position;
 import view.IViewSystem;
 
+/**
+ * <h1>The Class ControllerFacade provides a facade of the Controller component.</h1>
+ *
+ * @author Julien Baron.
+ * @version 1.0
+ */
+
 
 public class DogfightController implements IOrderPerformer {
 	private static int						TIME_SLEEP	= 30;
@@ -26,12 +34,24 @@ public class DogfightController implements IOrderPerformer {
 	static int board[][] = new int [120][80]; 
 	
 	
-
+	 /**
+     * Constructor.
+     *
+     * @param model
+     *            the model
+     */
 	public DogfightController(final IDogfightModel dogfightModel) {
 		this.dogfightModel = dogfightModel;
 	
 	}
-
+	
+	 /**
+     * Set the direction of the mobile. 
+     *
+     * @param userOrder the userorder
+     *            
+     */
+	
 	@Override
 	public void orderPerform(final IUserOrder userOrder) {
 		if (userOrder != null) {
@@ -50,10 +70,8 @@ public class DogfightController implements IOrderPerformer {
 						break;
 					case LEFT:
 						direction = Direction.LEFT;
-						System.out.println("left");
 						break;
 					case NOP:
-						System.out.println("nop");
 						direction = Direction.NOP;
 						break;
 					
@@ -71,6 +89,15 @@ public class DogfightController implements IOrderPerformer {
 	
 
 
+	 /**
+     * Test collision between mobile.
+     *
+     * @param mobile the mobile 
+     *            
+     * @param mobile the mobile
+     * 
+     * @return false
+     */
 	
 	private boolean isWeaponOnMobile(final IMobile mobile, final IMobile weapon) {
 		
@@ -84,9 +111,17 @@ public class DogfightController implements IOrderPerformer {
 		return false;
 	}
 	
-
+	 /**
+     * Facade Collision for player 0.
+     *
+     * @param monster
+     * 
+     * return false
+     *            
+     *         
+     */
 	
-	private boolean manageCollisionMonster(final IMobile lorann) {
+	private boolean manageCollisionMonster(final IMobile monster) {
 		final ArrayList<IMobile> target = new ArrayList<IMobile>();
 
 		
@@ -96,7 +131,7 @@ public class DogfightController implements IOrderPerformer {
 		}
 		for (final IMobile mobile : initialMobiles) {
 			if (!mobile.isMonster()) {
-				if (this.isWeaponOnMobile(mobile, lorann)) {
+				if (this.isWeaponOnMobile(mobile, monster)) {
 	
 				this.isGameOver = true;
 				return true;
@@ -106,6 +141,16 @@ public class DogfightController implements IOrderPerformer {
 
 		return false;
 	}
+	
+	 /**
+     * Facade collision for player 1.
+     *
+     * @param lorann
+     * 
+     * @return false
+     *           
+     *         
+     */
 	
 	private boolean manageCollisionLorann(final IMobile lorann) {
 		final ArrayList<IMobile> target = new ArrayList<IMobile>();
@@ -130,6 +175,11 @@ public class DogfightController implements IOrderPerformer {
 		
 		return false;
 	}
+	
+	 /**
+     * Intro screen.
+     *
+     */
 		
 		
 		public void intro() {
@@ -152,7 +202,11 @@ public class DogfightController implements IOrderPerformer {
 		
 			this.viewSystem.closeAll();
 		}
-	
+		 /**
+	     * Gameover screen.
+	     *
+	     *         
+	     */
 
 		public void gameover() {
 			BufferedImage image; 
@@ -174,6 +228,12 @@ public class DogfightController implements IOrderPerformer {
 		
 			this.viewSystem.closeAll();
 		}
+		
+		 /**
+	     * initialization variable.
+	     *
+	     *         
+	     */
 		
 	public int play1() {
 		
@@ -216,15 +276,13 @@ public class DogfightController implements IOrderPerformer {
 
 	int tX = 0;
 	int tY = 0;
-
-	int tXm = 0;
-	int tYm = 0;
-
-	Direction odir = Direction.NOP;
-	Direction dir = Direction.NOP;
 	
-	Direction odirm = Direction.NOP;
-	Direction dirm = Direction.NOP;
+	 /**
+     * gameLoop.
+     *
+     *         
+     */
+	
 	
 	private void gameLoop() {
 		IMobile lorann = this.dogfightModel.getMobileByPlayer(0);
@@ -247,7 +305,7 @@ public class DogfightController implements IOrderPerformer {
 						
 						tY=mobile.getPosition().getY() ;
 						tX=mobile.getPosition().getX() ;						
-						dir = mobile.getDirection();
+					
 						
 						this.viewSystem.afficheRectangle(tX, tY, 5, 5, 1);
 						board[tX/5][tY/5]=1;		
@@ -268,7 +326,7 @@ public class DogfightController implements IOrderPerformer {
 
 						tY=mobile.getPosition().getY() ;
 						tX=mobile.getPosition().getX() ;						
-						dir = mobile.getDirection();
+					
 						
 						this.viewSystem.afficheRectangle(tX, tY, 5, 5, 0);
 						board[tX/5][tY/5]=1;
@@ -292,8 +350,14 @@ public class DogfightController implements IOrderPerformer {
 	}
 	
 	
-
-	
+	 /**
+     * set the view .
+     *
+     * @param view the view
+     *            
+     * 
+     *         
+     */
 
 	public void setViewSystem(final IViewSystem viewSystem) {
 		this.viewSystem = viewSystem;
