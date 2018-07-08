@@ -1,0 +1,15 @@
+use lorann;
+drop table tron;
+CREATE TABLE tron (
+     ID int NOT NULL AUTO_INCREMENT,
+     name varchar(255) NOT NULL,
+     score int,
+     PRIMARY KEY (ID) 
+);
+
+drop procedure Insert_score;
+CREATE PROCEDURE Insert_score (IN id INT, IN nom VARCHAR(255), IN temps INT)  
+INSERT INTO tron VALUES (id, nom, temps);
+
+com.mysql.cj.jdbc.Driver
+
